@@ -5,7 +5,6 @@ import "./Cart.css";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
-  console.log(cartCtx);
 
   const onCartHandler = () => {
     props.setCartOpen(false);
@@ -13,9 +12,7 @@ const Cart = (props) => {
 
   const onPlcaeOrderHandler = () => {
     cartCtx.placeItem();
-  }
-
-  console.log(cartCtx.items);
+  };
 
   const consolidatedItems = cartCtx.items.reduce((acc, item) => {
     if (!acc[item.id]) {
@@ -26,13 +23,11 @@ const Cart = (props) => {
     return acc;
   }, {});
 
-  console.log(consolidatedItems);
-
   const cartItemDetails = Object.values(consolidatedItems).map((item) => (
     <div key={item.id}>
       <h1>{item.name}</h1>
-      <span>Quantity: {item.quantity}</span>
-      <br />
+      <p>Quantity: {item.quantity}</p>
+      <p>Price Per Item: {item.price}</p>
     </div>
   ));
 

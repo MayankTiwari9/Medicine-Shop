@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import './Modal.css';
+import "./Modal.css";
 
 const BackDrop = (props) => {
   return <div className="backdrop"></div>;

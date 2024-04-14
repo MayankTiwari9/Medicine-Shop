@@ -1,5 +1,3 @@
-// ListProvider.js
-
 import React, { useReducer } from "react";
 import ListContext from "./list-context";
 
@@ -36,7 +34,7 @@ const listReducer = (state, action) => {
 
   if (action.type === "DECREASE_ITEM_QUANTITY") {
     const existingItemIndex = state.items.findIndex(
-      (item) => item.id === action.id && item.size === action.size
+      (item) => item.id === action.id
     );
 
     const existingItem = state.items[existingItemIndex];
@@ -62,7 +60,6 @@ const listReducer = (state, action) => {
   return state;
 };
 
-
 const ListProvider = (props) => {
   const [listState, dispatchListAction] = useReducer(
     listReducer,
@@ -74,7 +71,7 @@ const ListProvider = (props) => {
   };
 
   const decreaseItemQuantityHandler = (id, size) => {
-    dispatchListAction({ type: "DECREASE_ITEM_QUANTITY", id: id, size: size });
+    dispatchListAction({ type: "DECREASE_ITEM_QUANTITY", id: id });
   };
 
   const listContext = {

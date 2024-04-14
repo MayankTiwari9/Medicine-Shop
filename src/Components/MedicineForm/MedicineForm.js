@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import ListContext from "../../Store/list-context";
 import "./MedicineForm.css";
-import { v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const MedicineForm = () => {
   const listContext = useContext(ListContext);
@@ -19,7 +19,7 @@ const MedicineForm = () => {
 
   const addListItemHandler = () => {
     const newItem = {
-      id: uuidv4(), 
+      id: uuidv4(),
       name: medicineData.name,
       description: medicineData.description,
       price: medicineData.price,
@@ -67,7 +67,9 @@ const MedicineForm = () => {
         </div>
       </div>
       <div>
-        <button className="add-btn" onClick={addListItemHandler}>Add Product</button>
+        <button className="add-btn" onClick={addListItemHandler}>
+          Add Product
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ function MedicineList() {
   const listCtx = useContext(ListContext);
   const cartCtx = useContext(CartContext);
 
-  const addItemToCartHandler = (item, size) => {
+  const addItemToCartHandler = (item) => {
     if (item.quantity > 0) {
       const cartItem = {
         id: item.id,
@@ -16,16 +16,13 @@ function MedicineList() {
         price: item.price,
         quantity: 1,
       };
-  
+
       cartCtx.addItem(cartItem);
-      listCtx.decreaseItemQuantity(item.id, size);
-    }
-    else{
+      listCtx.decreaseItemQuantity(item.id);
+    } else {
       alert("Item Quantity is less than 0");
     }
   };
-
-  console.log(listCtx.items);
 
   return (
     <div className="list-container">

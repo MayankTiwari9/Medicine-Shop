@@ -3,7 +3,6 @@ import "./Header.css";
 import CartContext from "../../Store/cart-context";
 
 const Header = (props) => {
-  
   const cartCtx = useContext(CartContext);
 
   const oncCartOpenHandler = () => {
@@ -14,7 +13,9 @@ const Header = (props) => {
     <>
       <div className="header">
         <h1>Medicine Shop</h1>
-        <button onClick={oncCartOpenHandler}>Cart {cartCtx.items.length}</button>
+        <button onClick={oncCartOpenHandler}>
+          Cart {cartCtx.items.length}
+        </button>
       </div>
     </>
   );

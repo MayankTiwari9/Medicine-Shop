@@ -70,11 +70,11 @@ const cartReducer = (state, action) => {
     };
   }
 
-  if(action.type === "PLACE_ORDER"){
+  if (action.type === "PLACE_ORDER") {
     return {
       items: [],
-      totalAmount: 0
-    }
+      totalAmount: 0,
+    };
   }
 
   return defaultCartState;
@@ -95,15 +95,15 @@ const CartProvider = (props) => {
   };
 
   const placeOrderHandler = () => {
-    dispatchCartAction({type: "PLACE_ORDER"})
-  }
+    dispatchCartAction({ type: "PLACE_ORDER" });
+  };
 
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addToCartHandler,
     removeItem: decreaseItemQuantityHandler,
-    placeItem: placeOrderHandler
+    placeItem: placeOrderHandler,
   };
 
   return (
